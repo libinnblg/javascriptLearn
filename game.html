@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html>
 	<head>
 		<meta charset="utf-8">
@@ -11,8 +11,39 @@
 	</head>
 	<body>
 		<canvas id="id-canvas" width="400" height="300"></canvas>
+		<ul id="test-list">
+			<li>JavaScript</li>
+			<li>Swift</li>
+			<li>HTML</li>
+			<li>ANSI C</li>
+			<li>CSS</li>
+			<li>DirectX</li>
+		</ul>
 		<script>
+			var ol = document.getElementById('test-list');
+			var li = document.getElementsByTagName('li');
+			var arr = [];
+			for(var item of li){
+				if(item.innerText === 'Swift' || item.innerText === 'ANSI C' || item.innerText === 'DirectX'){
+					arr.push(item);
+				}
+			}
+			arr.forEach(x => {
+				ol.removeChild(x);
+			});
 			
+			var user = document.getElementById('username').value;
+			if(user.lenght<3 || user.lenght>10) {
+				return false;
+			}
+			var pass1 = document.getElementById('password').value;
+			var pass2 = document.getElementById('password-2').value;
+			if(pass1.lenght<6 || pass1.lenght>20) {
+				return false;
+			}
+			if(pass1 != pass2) {
+			return false;
+			}
 		</script>
 	</body>
 </html>
