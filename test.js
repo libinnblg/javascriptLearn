@@ -149,11 +149,68 @@ function createStudent(name) {
 var xioaming = createStudent('小明');
 xiaoming.run();
 
+class Animal {
+    constructor(name) {
+        this.name = name;
+    }
+	hello(){
+		console.log(this.name + 'ddd');
+	}
+}
 
+class Cat extends Animal {
+	constructor(name){
+		super(name);
+	}
+}
+var t = new Cat('猫');
+t.hello();
 
+//navigator对象
+var log = console.log.bind(console.log);
 
+log('appName:' + navigator.appName);
+log('appVersion ='+ navigator.appVersion);
+log('language =' + navigator.language);
+log('platform =' + navigator.platform);
+log('userAgent=' + navigator.userAgent);
 
+getIEVersion(navigator.userAgent);
 
+//location
+var log = console.log.bind(console.log);
+log('protocol='+location.protocol);
+log('host='+location.host);
+log('port='+location.port);
+log('pathname='+location.pathname);
+log('search='+location.search);
+log('hash='+location.hash);
+log('href='+location.href);
+
+document.getElementById('test-js');
+
+var d = document.createElement('style');
+d.setAttribute('type','text/css');
+d.innerHTML = 'p {color:red}';
+document.getElementsByTagName('head')[0].appendChild(d);
+
+<ol id="test-list">
+    <li class="lang">Scheme</li>
+    <li class="lang">JavaScript</li>
+    <li class="lang">Python</li>
+    <li class="lang">Ruby</li>
+    <li class="lang">Haskell</li>
+</ol>
+
+var ol = document.getElementById('test-list');
+ol.childNodes().sort((a,b) => {
+	if(a.innerText < b.innerText) {
+		return -1;
+	}
+	if(a.innerText>b.innerText) {
+		return 1;
+	}
+})
 
 
 
