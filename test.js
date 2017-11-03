@@ -211,10 +211,40 @@ ol.childNodes().sort((a,b) => {
 		return 1;
 	}
 })
+//AJAX Demo
+function success(text) {
+	var textarea = document.getElementById('test-response-text');
+	textarea.value = text;
+}
 
+function fail(code) {
+	var textarea = document.getElementById('test-response-test');
+	textarea.value = 'Error code:'+code;
+}
 
+var request = XMLHttpRequest();//新建XMLHttpRequest对象
 
+request.onreadystatechange = function() {
+	if(request.readState === 4) {
+		if(request.status === 200) {
+			return success(request);
+		} else {
+			return fail(request.status);
+		}
+	} else {
+		//HTTP请求还在继续
+	}
+}
 
+request.open('GET','/api/categories');
+request.send();
+
+function callback(){
+	console.log('Done');
+}
+console.log('before setTimeout()');
+setTimeout(callback,2000);
+console.log('after setTimeout()');
 
 
 

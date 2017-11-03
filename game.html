@@ -11,39 +11,17 @@
 	</head>
 	<body>
 		<canvas id="id-canvas" width="400" height="300"></canvas>
-		<ul id="test-list">
-			<li>JavaScript</li>
-			<li>Swift</li>
-			<li>HTML</li>
-			<li>ANSI C</li>
-			<li>CSS</li>
-			<li>DirectX</li>
-		</ul>
+		<p>该实例使用 addEventListener() 方法来向按钮添加点击事件。</p>
+		<button id="myBtn">点我</button>
+		<p id="demo"></p>>
 		<script>
-			var ol = document.getElementById('test-list');
-			var li = document.getElementsByTagName('li');
-			var arr = [];
-			for(var item of li){
-				if(item.innerText === 'Swift' || item.innerText === 'ANSI C' || item.innerText === 'DirectX'){
-					arr.push(item);
-				}
-			}
-			arr.forEach(x => {
-				ol.removeChild(x);
+			document.getElementById('myBtn').addEventListener('click',function(){
+				document.getElementById('demo').innerText = '防辐射';
 			});
-			
-			var user = document.getElementById('username').value;
-			if(user.lenght<3 || user.lenght>10) {
-				return false;
-			}
-			var pass1 = document.getElementById('password').value;
-			var pass2 = document.getElementById('password-2').value;
-			if(pass1.lenght<6 || pass1.lenght>20) {
-				return false;
-			}
-			if(pass1 != pass2) {
-			return false;
-			}
+			document.getElementById('demo').addEventListener('click',function() {
+				document.innerText = 'dads';
+				
+			});
 		</script>
 	</body>
 </html>
