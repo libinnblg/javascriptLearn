@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style type="text/css">
+        canvas {border: 1px solid black;}
+    </style>
+    <script type="application/javascript">
+        var log = console.log.bind(console.log);
+        function draw() {
+            var canvas = document.getElementById('id-canvas');
+            
+            if(canvas.getContext) {
+                var ctx = canvas.getContext('2d');
+                log(ctx);
+                ctx.fillStyle = "rgb(200,0,0)";
+                ctx.fillRect(10,10,55,50);
+                ctx.strokeRect(20,10,50,50);               
+
+                ctx.fillStyle = "rgba(0,0,200,0.5)";
+                ctx.fillRect(30,30,55,50);
+                ctx.clearRect(30,30,30,30);
+            }
+            var obj = document.getElementById('obj')
+            log(obj);  
+        }  
+           
+    </script>
+</head>
+<body onload="draw();">
+    <canvas id="id-canvas" width="150" height="150">
+        current stock price:$3.15+0.15
+    </canvas>
+    <object id="obj" data="svgDemo.xml" width="300" height="100" 
+    type="image/svg+xml"
+    codebase="http://www.adobe.com/svg/viewer/install/" />
+</body>
+</html>
