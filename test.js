@@ -246,15 +246,53 @@ console.log('before setTimeout()');
 setTimeout(callback,2000);
 console.log('after setTimeout()');
 
+Object.prototype.print = function() {
+	console.log(this);
+}
 
+var temp = {
+	a:'fd',
+	b:[1,3,4,5]
+};
+Object.getOwnPropertyDescriptor(temp,'b');
 
+var o = Object.defineProperty({},'p',{
+	value:234,
+	writable:false,
+	enumerable:true,
+	configurable:false
+});
+o.p;
 
+//定义存取器
+var b = {
+	n:"ddsfd",
+	get N(){
+		console.log('get:'+this.n);
+		return this.n;
+	},
+	set N(value){
+		n = value;
+		console.log('set:'+this.n);
+	}
+}
+b.N;
 
+for(p in Date) {
+	cnsole.log(p);
+}
 
+function f1(){
+	var n=999;
+	function f2(){
+		alert(n);
+	}
+	return f2;
+}
 
+var result = f1();
 
-
-
+console.log(result);
 
 
 
